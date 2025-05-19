@@ -55,27 +55,47 @@ def update_job_summary(job_id, new_summary):
 # List all jobs
 def list_jobs():
     jobs = contract.functions.getAllJobs().call()
-    print(f"\nJob Listings ({len(jobs)} jobs):")
+    print(f"\nJob Listings ({jobs} jobs):")
     for job in jobs:
         print(f"ID: {job[0]} | Title: {job[1]} | Summary: {job[6]}")
     return jobs
 
+def get_job_details(job_id):
+    job = contract.functions.getJob(job_id).call()
+    print(f"\nJob Details (ID: {job_id}):")
+    print(f"Title: {job[1]}")
+    print(f"Description: {job[2]}")
+    print(f"Threshold: {job[3]}")
+    print(f"Max Candidates: {job[4]}")
+    print(f"Summary: {job[6]}")
+    return job
+
+def get_job_count():
+    job_count = contract.functions.getJobCount().call()
+    print(f"\nTotal number of jobs: {job_count}")
+    return job_count
+
 # Example usage
 if __name__ == "__main__":
-    # Add a new job (uncomment to run)
-    add_job(
-        title="AI Engineer",
-        description="Work with LLMs, Python, and Flask",
-        threshold=80,
-        max_candidates=5,
-        summary="LLM integration and deployment expert"
-    )
 
-    # View jobs
+    # get_job_details(job_id=1)  # Get details of job ID 0
+
+    # get_job_count()  # Get total number of jobs
+
+    # # Add a new job (uncomment to run)
+    # add_job(
+    #     title="AI Engineer",
+    #     description="Work with LLMs, Python, and Flask",
+    #     threshold=80,
+    #     max_candidates=5,
+    #     summary="LLM integration and deployment expert"
+    # )
+
+    # # View jobs
     list_jobs()
 
-    # Update a job summary (e.g., job ID 0)
-    update_job_summary(job_id=1, new_summary="Updated summary for AI Engineer")
+    # # Update a job summary (e.g., job ID 0)
+    # update_job_summary(job_id=1, new_summary="Updated summary for AI Engineer")
 
-    # Confirm update
-    list_jobs()
+    # # Confirm update
+    # list_jobs()

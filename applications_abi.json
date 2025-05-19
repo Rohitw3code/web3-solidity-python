@@ -1,0 +1,121 @@
+[
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": false, "internalType": "uint256", "name": "id", "type": "uint256"},
+            {"indexed": false, "internalType": "string", "name": "username", "type": "string"},
+            {"indexed": false, "internalType": "string", "name": "email", "type": "string"},
+            {"indexed": false, "internalType": "uint256", "name": "job_id", "type": "uint256"},
+            {"indexed": false, "internalType": "string", "name": "applied_at", "type": "string"}
+        ],
+        "name": "ApplicationCreated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": false, "internalType": "uint256", "name": "id", "type": "uint256"},
+            {"indexed": false, "internalType": "bool", "name": "selected", "type": "bool"},
+            {"indexed": false, "internalType": "bool", "name": "invitation_sent", "type": "bool"}
+        ],
+        "name": "ApplicationUpdated",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {"internalType": "string", "name": "_username", "type": "string"},
+            {"internalType": "string", "name": "_email", "type": "string"},
+            {"internalType": "string", "name": "_resume_text", "type": "string"},
+            {"internalType": "uint256", "name": "_job_id", "type": "uint256"},
+            {"internalType": "string", "name": "_applied_at", "type": "string"},
+            {"internalType": "string", "name": "_extracted_data", "type": "string"}
+        ],
+        "name": "createApplication",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_id", "type": "uint256"}],
+        "name": "getApplication",
+        "outputs": [
+            {"internalType": "uint256", "name": "id", "type": "uint256"},
+            {"internalType": "string", "name": "username", "type": "string"},
+            {"internalType": "string", "name": "email", "type": "string"},
+            {"internalType": "string", "name": "resume_text", "type": "string"},
+            {"internalType": "uint256", "name": "job_id", "type": "uint256"},
+            {"internalType": "string", "name": "applied_at", "type": "string"},
+            {"internalType": "string", "name": "extracted_data", "type": "string"},
+            {"internalType": "string", "name": "match_score", "type": "string"},
+            {"internalType": "bool", "name": "selected", "type": "bool"},
+            {"internalType": "bool", "name": "invitation_sent", "type": "bool"}
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_job_id", "type": "uint256"}],
+        "name": "getApplicationsByJobId",
+        "outputs": [
+            {"internalType": "uint256[]", "name": "ids", "type": "uint256[]"},
+            {"internalType": "string[]", "name": "usernames", "type": "string[]"},
+            {"internalType": "string[]", "name": "emails", "type": "string[]"},
+            {"internalType": "string[]", "name": "resume_texts", "type": "string[]"},
+            {"internalType": "uint256[]", "name": "job_ids", "type": "uint256[]"},
+            {"internalType": "string[]", "name": "applied_ats", "type": "string[]"},
+            {"internalType": "string[]", "name": "extracted_datas", "type": "string[]"},
+            {"internalType": "string[]", "name": "match_scores", "type": "string[]"},
+            {"internalType": "bool[]", "name": "selecteds", "type": "bool[]"},
+            {"internalType": "bool[]", "name": "invitation_sents", "type": "bool[]"}
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getNextId",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_id", "type": "uint256"}],
+        "name": "setApplicationInvitationSent",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_id", "type": "uint256"}],
+        "name": "setApplicationSelected",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "uint256", "name": "", "type": "uint256"},
+            {"internalType": "uint256", "name": "", "type": "uint256"}
+        ],
+        "name": "applications",
+        "outputs": [
+            {"internalType": "uint256", "name": "id", "type": "uint256"},
+            {"internalType": "string", "name": "username", "type": "string"},
+            {"internalType": "string", "name": "email", "type": "string"},
+            {"internalType": "string", "name": "resume_text", "type": "string"},
+            {"internalType": "uint256", "name": "job_id", "type": "uint256"},
+            {"internalType": "string", "name": "applied_at", "type": "string"},
+            {"internalType": "string", "name": "extracted_data", "type": "string"},
+            {"internalType": "string", "name": "match_score", "type": "string"},
+            {"internalType": "bool", "name": "selected", "type": "bool"},
+            {"internalType": "bool", "name": "invitation_sent", "type": "bool"}
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
